@@ -1,0 +1,79 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DeshBoard.aspx.cs" Inherits="Proj_Loan_Management.DeshBoard" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Form with Panels and Columns</title>
+    <%--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" />--%>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+         .panel {
+            width: 90%;
+            margin: 10px auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .container {
+            margin-top: 10vh;
+            width: 90%;
+            max-width: 95%;
+        }
+        .pnlMenu {
+            background-color: #f0f0f0;
+            padding: 20px;
+            width: 90%;
+              margin: 10px auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+             height: 6vh;
+        }
+        .PanelDetails {
+            background-color: #f8f8f8;
+            padding: 20px;
+             width: 90%;
+              margin: 10px auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+    <style type="text/css">
+    .hiddencol
+    {
+     display: none;
+    }
+</style>
+</head>
+<body>
+    <form id="FormWithColumns" runat="server" enctype="multipart/form-data">
+        
+            <div class="pnlMenu">
+                <asp:PlaceHolder ID="menuContainer" runat="server"></asp:PlaceHolder>
+            </div>
+
+            <div class="PanelDetails">
+            
+                <div class="row">
+                 <div class="col">
+    <div class="form-group">
+        
+    </div>
+</div>
+
+                </div>
+        
+                <div class="row">
+                    <div class="col">
+                     
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+             
+                    </div>
+                </div>
+            </div>
+        
+    </form>
+</body>
+</html>

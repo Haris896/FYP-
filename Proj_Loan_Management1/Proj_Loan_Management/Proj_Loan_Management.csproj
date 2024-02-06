@@ -1,0 +1,614 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B47A0FC4-6EF0-4687-916A-4022CD8F9370}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Proj_Loan_Management</RootNamespace>
+    <AssemblyName>Proj_Loan_Management</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ADRaffy.ENSNormalize, Version=0.1.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ADRaffy.ENSNormalize.0.1.5\lib\net451\ADRaffy.ENSNormalize.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.2.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.2\lib\BouncyCastle.Crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportAppServer.CommLayer, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Nethereum.ABI, Version=4.18.0.0, Culture=neutral, PublicKeyToken=8768a594786aba4e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nethereum.ABI.4.18.0\lib\net451\Nethereum.ABI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nethereum.Accounts, Version=4.18.0.0, Culture=neutral, PublicKeyToken=8768a594786aba4e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nethereum.Accounts.4.18.0\lib\net451\Nethereum.Accounts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nethereum.BlockchainProcessing, Version=4.18.0.0, Culture=neutral, PublicKeyToken=8768a594786aba4e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nethereum.BlockchainProcessing.4.18.0\lib\net451\Nethereum.BlockchainProcessing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nethereum.Contracts, Version=4.18.0.0, Culture=neutral, PublicKeyToken=8768a594786aba4e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nethereum.Contracts.4.18.0\lib\net451\Nethereum.Contracts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nethereum.Hex, Version=4.18.0.0, Culture=neutral, PublicKeyToken=8768a594786aba4e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nethereum.Hex.4.18.0\lib\net451\Nethereum.Hex.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nethereum.JsonRpc.Client, Version=4.18.0.0, Culture=neutral, PublicKeyToken=8768a594786aba4e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nethereum.JsonRpc.Client.4.18.0\lib\net451\Nethereum.JsonRpc.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nethereum.JsonRpc.RpcClient, Version=4.18.0.0, Culture=neutral, PublicKeyToken=8768a594786aba4e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nethereum.JsonRpc.RpcClient.4.18.0\lib\net451\Nethereum.JsonRpc.RpcClient.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nethereum.KeyStore, Version=4.18.0.0, Culture=neutral, PublicKeyToken=8768a594786aba4e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nethereum.KeyStore.4.18.0\lib\net451\Nethereum.KeyStore.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nethereum.Merkle.Patricia, Version=4.18.0.0, Culture=neutral, PublicKeyToken=8768a594786aba4e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nethereum.Merkle.Patricia.4.18.0\lib\net451\Nethereum.Merkle.Patricia.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nethereum.Model, Version=4.18.0.0, Culture=neutral, PublicKeyToken=8768a594786aba4e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nethereum.Model.4.18.0\lib\net451\Nethereum.Model.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nethereum.RLP, Version=4.18.0.0, Culture=neutral, PublicKeyToken=8768a594786aba4e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nethereum.RLP.4.18.0\lib\net451\Nethereum.RLP.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nethereum.RPC, Version=4.18.0.0, Culture=neutral, PublicKeyToken=8768a594786aba4e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nethereum.RPC.4.18.0\lib\net451\Nethereum.RPC.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nethereum.Signer, Version=4.18.0.0, Culture=neutral, PublicKeyToken=8768a594786aba4e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nethereum.Signer.4.18.0\lib\net451\Nethereum.Signer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nethereum.Signer.EIP712, Version=4.18.0.0, Culture=neutral, PublicKeyToken=8768a594786aba4e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nethereum.Signer.EIP712.4.18.0\lib\net451\Nethereum.Signer.EIP712.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nethereum.Util, Version=4.18.0.0, Culture=neutral, PublicKeyToken=8768a594786aba4e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nethereum.Util.4.18.0\lib\net451\Nethereum.Util.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nethereum.Web3, Version=4.18.0.0, Culture=neutral, PublicKeyToken=8768a594786aba4e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nethereum.Web3.4.18.0\lib\net451\Nethereum.Web3.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\AjaxLoader.html" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\flaticon.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\fontello.css" />
+    <Content Include="css\grabbing.html" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="css\magnific-popup.css" />
+    <Content Include="css\owl.carousel.css" />
+    <Content Include="css\owl.theme.css" />
+    <Content Include="css\simple-slider.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\style2.css" />
+    <Content Include="DeshBoard.aspx" />
+    <Content Include="frmActiveDeactive.aspx" />
+    <Content Include="frmCustomer.aspx" />
+    <Content Include="frmDispute.aspx" />
+    <Content Include="frmDisputeResolve.aspx" />
+    <Content Include="frmLoan.aspx" />
+    <Content Include="frmLoanApplication.aspx" />
+    <Content Include="frmLoanApproval.aspx" />
+    <Content Include="frmLoanRepayment.aspx" />
+    <Content Include="frmResetPassword.aspx" />
+    <Content Include="FrmRptActiveCustomer.aspx" />
+    <Content Include="frmUserManagement.aspx" />
+    <Content Include="images\24-hours-icon.png" />
+    <Content Include="images\app-store-img.png" />
+    <Content Include="images\author.jpg" />
+    <Content Include="images\blog-img-1.jpg" />
+    <Content Include="images\blog-img-2.jpg" />
+    <Content Include="images\blog-img-3.jpg" />
+    <Content Include="images\blog-img-4.jpg" />
+    <Content Include="images\blog-img-5.jpg" />
+    <Content Include="images\blog-img.jpg" />
+    <Content Include="images\blog-post-1.jpg" />
+    <Content Include="images\blog-post-2.jpg" />
+    <Content Include="images\blog-post-3.jpg" />
+    <Content Include="images\blog-post-4.jpg" />
+    <Content Include="images\blog-post-5.jpg" />
+    <Content Include="images\blog-post-6.jpg" />
+    <Content Include="images\business-loan-about.jpg" />
+    <Content Include="images\business-slider-1.jpg" />
+    <Content Include="images\business-slider-2.jpg" />
+    <Content Include="images\business-slider-3.jpg" />
+    <Content Include="images\business_loan.jpg" />
+    <Content Include="images\car.svg" />
+    <Content Include="images\card-1.png" />
+    <Content Include="images\card-2.png" />
+    <Content Include="images\card-3.png" />
+    <Content Include="images\card-4.png" />
+    <Content Include="images\card-5.png" />
+    <Content Include="images\card-6.png" />
+    <Content Include="images\card-img-1.png" />
+    <Content Include="images\cd-top-arrow.svg" />
+    <Content Include="images\company-logo-1.png" />
+    <Content Include="images\company-logo-2.png" />
+    <Content Include="images\company-logo-3.png" />
+    <Content Include="images\company-logo-4.png" />
+    <Content Include="images\company-logo-5.png" />
+    <Content Include="images\counter-wrapper.jpg" />
+    <Content Include="images\credit-card.svg" />
+    <Content Include="images\cta-img-2.jpg" />
+    <Content Include="images\cta-img-3.jpg" />
+    <Content Include="images\cta-img-4.jpg" />
+    <Content Include="images\cta-img.jpg" />
+    <Content Include="images\currency-icon.png" />
+    <Content Include="images\customer-1.jpg" />
+    <Content Include="images\customer-2.jpg" />
+    <Content Include="images\customer-3.jpg" />
+    <Content Include="images\education_loan.jpg" />
+    <Content Include="images\error-img.png" />
+    <Content Include="images\ft-logo.png" />
+    <Content Include="images\google-play-img.png" />
+    <Content Include="images\hero-img-1.jpg" />
+    <Content Include="images\hero-img-2.jpg" />
+    <Content Include="images\home-loan-lp.jpg" />
+    <Content Include="images\index-three-slider-1.jpg" />
+    <Content Include="images\index-three-slider-2.jpg" />
+    <Content Include="images\index-three-slider-3.jpg" />
+    <Content Include="images\lead-hero-img.jpg" />
+    <Content Include="images\lender-logo-1.png" />
+    <Content Include="images\lender-logo-2.png" />
+    <Content Include="images\lender-logo-3.png" />
+    <Content Include="images\lender-logo-4.png" />
+    <Content Include="images\lender-logo-5.png" />
+    <Content Include="images\lender-logo-6.png" />
+    <Content Include="images\lender-small-1.png" />
+    <Content Include="images\lender-small-2.png" />
+    <Content Include="images\lender-small-3.png" />
+    <Content Include="images\lender-small-4.png" />
+    <Content Include="images\lender-small-5.png" />
+    <Content Include="images\lender-small-6.png" />
+    <Content Include="images\loan-icon-1.png" />
+    <Content Include="images\loan-icon-2.png" />
+    <Content Include="images\loan-icon-3.png" />
+    <Content Include="images\loan-icon-4.png" />
+    <Content Include="images\loan-icon-5.png" />
+    <Content Include="images\loan-icon-6.png" />
+    <Content Include="images\loan.jpg" />
+    <Content Include="images\loan.svg" />
+    <Content Include="images\logo-1.jpg" />
+    <Content Include="images\logo-2.jpg" />
+    <Content Include="images\logo-3.jpg" />
+    <Content Include="images\logo-4.jpg" />
+    <Content Include="images\logo-5.jpg" />
+    <Content Include="images\logo-bank.png" />
+    <Content Include="images\logo-big-1.png" />
+    <Content Include="images\logo-big-2.png" />
+    <Content Include="images\logo-big-3.png" />
+    <Content Include="images\logo-big-4.png" />
+    <Content Include="images\logo-pink.png" />
+    <Content Include="images\logo-white.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\lp-car-image.jpg" />
+    <Content Include="images\lp-feature-img.jpg" />
+    <Content Include="images\map-pin.png" />
+    <Content Include="images\masonry-1.jpg" />
+    <Content Include="images\masonry-2.jpg" />
+    <Content Include="images\masonry-3.jpg" />
+    <Content Include="images\masonry-4.jpg" />
+    <Content Include="images\masonry-5.jpg" />
+    <Content Include="images\masonry-6.jpg" />
+    <Content Include="images\masonry-7.jpg" />
+    <Content Include="images\mortgage.svg" />
+    <Content Include="images\page-header.jpg" />
+    <Content Include="images\PDF-icon.png" />
+    <Content Include="images\piggy-bank.svg" />
+    <Content Include="images\play-icon.png" />
+    <Content Include="images\post-thumb-img-1.jpg" />
+    <Content Include="images\post-thumb-img-2.jpg" />
+    <Content Include="images\post-thumb-img-3.jpg" />
+    <Content Include="images\process-img-1.jpg" />
+    <Content Include="images\process-img-2.jpg" />
+    <Content Include="images\process-img-3.jpg" />
+    <Content Include="images\recent-img-1.jpg" />
+    <Content Include="images\recent-img-2.jpg" />
+    <Content Include="images\recent-img-3.jpg" />
+    <Content Include="images\related-img-1.jpg" />
+    <Content Include="images\related-img-2.jpg" />
+    <Content Include="images\saving-img.jpg" />
+    <Content Include="images\shield-icon.png" />
+    <Content Include="images\slider-1.jpg" />
+    <Content Include="images\slider-2.jpg" />
+    <Content Include="images\slider-3.jpg" />
+    <Content Include="images\slider-4.jpg" />
+    <Content Include="images\slider-5.jpg" />
+    <Content Include="images\slider-6.jpg" />
+    <Content Include="images\student-slider-1.jpg" />
+    <Content Include="images\student-slider-2.jpg" />
+    <Content Include="images\student-slider-3.jpg" />
+    <Content Include="images\tab-img-1.png" />
+    <Content Include="images\tab-img-2.png" />
+    <Content Include="images\tab-img-3.png" />
+    <Content Include="images\team1.jpg" />
+    <Content Include="images\team2.jpg" />
+    <Content Include="images\team3.jpg" />
+    <Content Include="images\team4.jpg" />
+    <Content Include="images\team5.jpg" />
+    <Content Include="images\team6.jpg" />
+    <Content Include="images\team7.jpg" />
+    <Content Include="images\team8.jpg" />
+    <Content Include="images\team9.jpg" />
+    <Content Include="images\testimonial-img-1.jpg" />
+    <Content Include="images\testimonial-img-2.jpg" />
+    <Content Include="images\testimonial-img.jpg" />
+    <Content Include="images\user-pic-1.jpg" />
+    <Content Include="images\user-pic-2.jpg" />
+    <Content Include="images\user-pic-3.jpg" />
+    <Content Include="images\user-pic-4.jpg" />
+    <Content Include="images\view_button.png" />
+    <Content Include="images\zoom-1.jpg" />
+    <Content Include="images\zoom-2.jpg" />
+    <Content Include="images\zoom-3.jpg" />
+    <Content Include="images\zoom-4.jpg" />
+    <Content Include="images\zoom-small-1.jpg" />
+    <Content Include="images\zoom-small-2.jpg" />
+    <Content Include="images\zoom-small-3.jpg" />
+    <Content Include="images\zoom-small-4.jpg" />
+    <Content Include="Index.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="Login.aspx" />
+    <Content Include="Reports\FrmRptActiveCustomer.aspx" />
+    <Content Include="Reports\frmRptSchedule.aspx" />
+    <Content Include="Reports\Rpt_PaymentDetails.aspx" />
+    <Content Include="scripts\ai.0.22.9-build00167.js" />
+    <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="scripts\jquery-3.6.0.min.js" />
+    <Content Include="SignUp.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\LoanBlockchain.cs" />
+    <Compile Include="Classes\smartCOntract.cs" />
+    <Compile Include="CL_Loan_Request.cs" />
+    <Compile Include="DeshBoard.aspx.cs">
+      <DependentUpon>DeshBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeshBoard.aspx.designer.cs">
+      <DependentUpon>DeshBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmActiveDeactive.aspx.cs">
+      <DependentUpon>frmActiveDeactive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmActiveDeactive.aspx.designer.cs">
+      <DependentUpon>frmActiveDeactive.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmCustomer.aspx.cs">
+      <DependentUpon>frmCustomer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmCustomer.aspx.designer.cs">
+      <DependentUpon>frmCustomer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmDispute.aspx.cs">
+      <DependentUpon>frmDispute.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmDispute.aspx.designer.cs">
+      <DependentUpon>frmDispute.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmDisputeResolve.aspx.cs">
+      <DependentUpon>frmDisputeResolve.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmDisputeResolve.aspx.designer.cs">
+      <DependentUpon>frmDisputeResolve.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoan.aspx.cs">
+      <DependentUpon>frmLoan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmLoan.aspx.designer.cs">
+      <DependentUpon>frmLoan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoanApplication.aspx.cs">
+      <DependentUpon>frmLoanApplication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmLoanApplication.aspx.designer.cs">
+      <DependentUpon>frmLoanApplication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoanApproval.aspx.cs">
+      <DependentUpon>frmLoanApproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmLoanApproval.aspx.designer.cs">
+      <DependentUpon>frmLoanApproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoanRepayment.aspx.cs">
+      <DependentUpon>frmLoanRepayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmLoanRepayment.aspx.designer.cs">
+      <DependentUpon>frmLoanRepayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmResetPassword.aspx.cs">
+      <DependentUpon>frmResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmResetPassword.aspx.designer.cs">
+      <DependentUpon>frmResetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmUserManagement.aspx.cs">
+      <DependentUpon>frmUserManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmUserManagement.aspx.designer.cs">
+      <DependentUpon>frmUserManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MenuItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\FrmRptActiveCustomer.aspx.cs">
+      <DependentUpon>FrmRptActiveCustomer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\FrmRptActiveCustomer.aspx.designer.cs">
+      <DependentUpon>FrmRptActiveCustomer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmRptSchedule.aspx.cs">
+      <DependentUpon>frmRptSchedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\frmRptSchedule.aspx.designer.cs">
+      <DependentUpon>frmRptSchedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RptActiveMember.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptActiveMember.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptSchedule.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptSchedule.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rpt_PaymentDetail.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_PaymentDetail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rpt_PaymentDetails.aspx.cs">
+      <DependentUpon>Rpt_PaymentDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Rpt_PaymentDetails.aspx.designer.cs">
+      <DependentUpon>Rpt_PaymentDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SignUp.aspx.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SignUp.aspx.designer.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="crystalreportviewers13\" />
+    <Folder Include="css\images\" />
+    <Folder Include="flat-font-icons\" />
+    <Folder Include="fonts\" />
+    <Folder Include="js\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="scripts\jquery-3.6.0.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptActiveMember.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptActiveMember.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptSchedule.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptSchedule.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rpt_PaymentDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PaymentDetail.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52867</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52867/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
